@@ -1,6 +1,8 @@
 const tmi = require('tmi.js');
 const TeemoJS = require('teemojs');
 const { getSummonerLeagues } = require('./functions.js');
+const dotenv = require('dotenv');
+dotenv.config()
 
 let api = TeemoJS('RGAPI-ed002082-d8eb-47a9-8621-e4f4c2f30e19', {
   "maxConcurrent": 20
@@ -24,7 +26,7 @@ const client = new tmi.Client({
   },
   identity: {
     username: 'kodbilenbot',
-    password: '#'
+    password: process.env.TMI_PASSWORD
   },
   channels: ['kodbilen']
 });
